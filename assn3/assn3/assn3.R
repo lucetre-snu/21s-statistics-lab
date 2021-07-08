@@ -2,7 +2,7 @@
 # ex1
 ames = read.csv("ames.csv", header=T)
 saleprice = ames$SalePrice
-hist(saleprice, xlab="Sale Price ($)", main="")
+hist(saleprice, xlab="Sale Price ($)", main="Histogram of Sale Price")
 summary(saleprice)
 
 # ex2
@@ -33,7 +33,7 @@ hist(sample_mean150, xlim=c(140000, 230000),
 
 # ex6
 n = c(10, 30, 50, 100)
-par(mfrow=c(1,4))
+par(mfrow=c(2,2))
 
 for (i in 1:4) {
   xsquare.sum = c()
@@ -41,7 +41,7 @@ for (i in 1:4) {
     x = rnorm(n[i], mean=0, sd=1)
     xsquare.sum[j] = sum(x*x)
   }
-  hist(xsquare.sum, probability=T, main=paste("n=", n[i]))
+  hist(xsquare.sum, probability=T, main=paste("chi-square ( n =", n[i], ")"))
   y = seq(0, max(xsquare.sum), 0.1)
   fy = dchisq(y, n[i])
   lines(y, fy)
